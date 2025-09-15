@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* VTC & Location Colors */
+  --vtc-black: #000000;
+  --vtc-gold: #CDA434;
+  --vtc-silver: #C0C0C0;
+  
+  /* Formations Colors */
+  --formations-blue: #0057B7;
+  --formations-white: #FFFFFF;
+  --formations-light-gray: #F5F5F5;
+  
+  /* Afrique Colors */
+  --afrique-orange: #F7931E;
+  --afrique-green: #009245;
+  --afrique-light-brown: #A9744F;
+  
+  /* Base Colors */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* VTC Theme */
+  .theme-vtc {
+    --primary-color: var(--vtc-black);
+    --secondary-color: var(--vtc-gold);
+    --accent-color: var(--vtc-silver);
+  }
+  
+  /* Formations Theme */
+  .theme-formations {
+    --primary-color: var(--formations-blue);
+    --secondary-color: var(--formations-white);
+    --accent-color: var(--formations-light-gray);
+  }
+  
+  /* Afrique Theme */
+  .theme-afrique {
+    --primary-color: var(--afrique-orange);
+    --secondary-color: var(--afrique-green);
+    --accent-color: var(--afrique-light-brown);
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-vtc {
+    background-color: var(--vtc-gold);
+    @apply text-black hover:bg-opacity-90;
+  }
+  
+  .btn-formations {
+    background-color: var(--formations-blue);
+    @apply text-white hover:bg-opacity-90;
+  }
+  
+  .btn-afrique {
+    background-color: var(--afrique-orange);
+    @apply text-white hover:bg-opacity-90;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  /* Section Styles */
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Hero Section */
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(205,164,52,0.3));
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}

@@ -1,0 +1,19 @@
+<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="80" rx="8" fill="#000000"/>
+  
+  <!-- Gold accent -->
+  <rect x="10" y="10" width="180" height="60" rx="4" fill="#CDA434"/>
+  
+  <!-- Text DJOK -->
+  <text x="25" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#000000">DJOK</text>
+  
+  <!-- Text PRESTIGE -->
+  <text x="25" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#000000">PRESTIGE</text>
+  
+  <!-- Icon car -->
+  <circle cx="150" cy="35" r="15" fill="#000000"/>
+  <rect x="140" y="30" width="20" height="10" rx="2" fill="#CDA434"/>
+  <circle cx="145" cy="45" r="3" fill="#000000"/>
+  <circle cx="155" cy="45" r="3" fill="#000000"/>
+</svg>
