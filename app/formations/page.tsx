@@ -3,10 +3,26 @@ import React, { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { FaGraduationCap, FaCertificate, FaUsers, FaCalendarAlt, FaClock, FaEuroSign, FaDownload, FaPlay, FaStar, FaQuestionCircle } from 'react-icons/fa';
+import { 
+  FaGraduationCap, 
+  FaCertificate, 
+  FaUsers, 
+  FaCalendarAlt, 
+  FaClock, 
+  FaEuroSign, 
+  FaDownload, 
+  FaPlay, 
+  FaStar, 
+  FaQuestionCircle,
+  FaRoad,
+  FaMapMarkedAlt,
+  FaHandshake,
+  FaLeaf,
+  FaHeart
+} from 'react-icons/fa';
 
 export default function FormationsPage() {
-  const [selectedModule, setSelectedModule] = useState(null);
+  const [selectedModule, setSelectedModule] = useState<number | null>(null);
   const [inscriptionForm, setInscriptionForm] = useState({
     nom: '',
     email: '',
@@ -16,11 +32,22 @@ export default function FormationsPage() {
     financement: ''
   });
 
+  // Icônes spécifiques pour chaque module
+  const moduleIcons = [
+    <FaCertificate className="text-3xl text-[#0057B7]" />,
+    <FaEuroSign className="text-3xl text-[#0057B7]" />,
+    <FaRoad className="text-3xl text-[#0057B7]" />,
+    <FaHandshake className="text-3xl text-[#0057B7]" />,
+    <FaGraduationCap className="text-3xl text-[#0057B7]" />,
+    <FaMapMarkedAlt className="text-3xl text-[#0057B7]" />,
+    <FaLeaf className="text-3xl text-[#0057B7]" />,
+    <FaHeart className="text-3xl text-[#0057B7]" />
+  ];
+
   const modules = [
     {
       id: 1,
       title: 'Réglementation VTC',
-      icon: <FaCertificate className="text-3xl text-[#0057B7]" />,
       duration: '2 jours',
       description: 'Maîtrisez la réglementation en vigueur pour exercer en tant que chauffeur VTC.',
       content: ['Cadre légal', 'Obligations professionnelles', 'Sanctions', 'Évolutions réglementaires']
@@ -28,7 +55,6 @@ export default function FormationsPage() {
     {
       id: 2,
       title: 'Gestion Commerciale',
-      icon: <FaEuroSign className="text-3xl text-[#0057B7]" />,
       duration: '3 jours',
       description: 'Développez vos compétences commerciales et de gestion d\'entreprise.',
       content: ['Création d\'entreprise', 'Comptabilité', 'Facturation', 'Développement commercial']
@@ -36,7 +62,6 @@ export default function FormationsPage() {
     {
       id: 3,
       title: 'Sécurité Routière',
-      icon: <FaUsers className="text-3xl text-[#0057B7]" />,
       duration: '1 jour',
       description: 'Perfectionnez votre conduite et adoptez les bons réflexes sécuritaires.',
       content: ['Code de la route', 'Conduite défensive', 'Premiers secours', 'Gestion du stress']
@@ -44,7 +69,6 @@ export default function FormationsPage() {
     {
       id: 4,
       title: 'Relation Client',
-      icon: <FaUsers className="text-3xl text-[#0057B7]" />,
       duration: '2 jours',
       description: 'Excellez dans l\'accueil et la satisfaction de votre clientèle.',
       content: ['Communication', 'Gestion des conflits', 'Service premium', 'Fidélisation']
@@ -52,7 +76,6 @@ export default function FormationsPage() {
     {
       id: 5,
       title: 'Anglais Professionnel',
-      icon: <FaGraduationCap className="text-3xl text-[#0057B7]" />,
       duration: '5 jours',
       description: 'Communiquez efficacement avec une clientèle internationale.',
       content: ['Vocabulaire transport', 'Situations courantes', 'Accueil aéroport', 'Conversation']
@@ -60,7 +83,6 @@ export default function FormationsPage() {
     {
       id: 6,
       title: 'Géographie Touristique',
-      icon: <FaUsers className="text-3xl text-[#0057B7]" />,
       duration: '2 jours',
       description: 'Maîtrisez les lieux touristiques et itinéraires de votre région.',
       content: ['Points d\'intérêt', 'Itinéraires optimaux', 'Histoire locale', 'Recommandations']
@@ -68,7 +90,6 @@ export default function FormationsPage() {
     {
       id: 7,
       title: 'Développement Durable',
-      icon: <FaCertificate className="text-3xl text-[#0057B7]" />,
       duration: '1 jour',
       description: 'Intégrez les enjeux environnementaux dans votre activité.',
       content: ['Éco-conduite', 'Véhicules propres', 'Réduction d\'impact', 'Sensibilisation']
@@ -76,7 +97,6 @@ export default function FormationsPage() {
     {
       id: 8,
       title: 'Gestion du Stress',
-      icon: <FaUsers className="text-3xl text-[#0057B7]" />,
       duration: '1 jour',
       description: 'Gérez efficacement le stress et maintenez votre bien-être professionnel.',
       content: ['Techniques de relaxation', 'Gestion du temps', 'Équilibre vie pro/perso', 'Prévention burn-out']
@@ -261,7 +281,7 @@ export default function FormationsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {modules.map((module) => (
+            {modules.map((module, index) => (
               <Card 
                 key={module.id} 
                 className={`cursor-pointer transition-all duration-300 hover:shadow-xl ${
@@ -270,32 +290,60 @@ export default function FormationsPage() {
                 onClick={() => setSelectedModule(selectedModule === module.id ? null : module.id)}
               >
                 <div className="text-center mb-4">
-                  {module.icon}
+                  {moduleIcons[index]}
                 </div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2 text-center">
                   {module.title}
                 </h3>
                 <div className="flex items-center justify-center mb-3">
                   <FaClock className="text-[#0057B7] mr-2" />
                   <span className="font-body text-sm text-gray-600">{module.duration}</span>
                 </div>
-                <p className="font-body text-sm text-gray-600 mb-4">
+                <p className="font-body text-sm text-gray-600 mb-4 text-center">
                   {module.description}
                 </p>
+                
+                {/* Contenu détaillé qui s'affiche au clic */}
                 {selectedModule === module.id && (
-                  <div className="border-t pt-4">
-                    <h4 className="font-heading font-semibold text-gray-900 mb-2">Contenu :</h4>
-                    <ul className="space-y-1">
-                      {module.content.map((item, index) => (
-                        <li key={index} className="font-body text-sm text-gray-600">
-                          • {item}
+                  <div className="border-t pt-4 mt-4">
+                    <h4 className="font-heading font-semibold text-gray-900 mb-2 text-center">Contenu détaillé :</h4>
+                    <ul className="space-y-2">
+                      {module.content.map((item, contentIndex) => (
+                        <li key={contentIndex} className="font-body text-sm text-gray-600 flex items-start">
+                          <span className="text-[#0057B7] mr-2">•</span>
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
+                    <Button 
+                      variant="formations" 
+                      size="sm" 
+                      className="w-full mt-4"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        document.getElementById('inscription')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      S'inscrire à ce module
+                    </Button>
                   </div>
+                )}
+                
+                {/* Indicateur pour les modules non sélectionnés */}
+                {selectedModule !== module.id && (
+                  <p className="text-center text-xs text-[#0057B7] font-semibold mt-2">
+                    Cliquez pour voir le détail
+                  </p>
                 )}
               </Card>
             ))}
+          </div>
+          
+          {/* Instructions pour l'utilisateur */}
+          <div className="text-center mt-8">
+            <p className="font-body text-gray-600">
+              <strong>Astuce :</strong> Cliquez sur chaque module pour découvrir son contenu détaillé
+            </p>
           </div>
         </div>
       </section>
