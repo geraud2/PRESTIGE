@@ -120,7 +120,7 @@ export default function AProposPage() {
         theme="vtc"
         primaryAction={{
           text: "Voir nos formations",
-          href: "#equipe",
+          href: "formations",
           onClick: () => document.getElementById('equipe')?.scrollIntoView({ behavior: 'smooth' })
         }}
         secondaryAction={{
