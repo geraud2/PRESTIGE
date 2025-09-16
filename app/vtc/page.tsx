@@ -204,7 +204,7 @@ export default function VTCPage() {
         </div>
       </section>
 
-      {/* Booking Form */}
+      {/* Booking Form
       <section id="booking" className="section-padding">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -327,7 +327,7 @@ export default function VTCPage() {
             </form>
           </Card>
         </div>
-      </section>
+      </section> */}
 
       {/* Reviews Section */}
       <section className="section-padding bg-gray-50">

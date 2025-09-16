@@ -79,15 +79,22 @@ const Header = () => {
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white shadow-lg' : 'bg-white lg:bg-transparent'
     } ${getThemeClass()}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-yellow-600">
-              DJOK PRESTIGE
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="relative w-40 h-40">
+              <div className="w-full h-full rounded-full flex items-center justify-center overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="DJOK PRESTIGE Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
+            
           </Link>
 
           {/* Desktop Navigation */}
@@ -221,9 +228,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden p-2 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            } hover:text-[#CDA434] transition-colors`}
+            className={`lg:hidden p-2 text-gray-900 hover:text-[#CDA434] transition-colors`}
           >
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -270,5 +275,5 @@ const Header = () => {
     </header>
   );
 };
-
+ 
 export default Header;

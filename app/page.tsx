@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
-import Card from '@/components/ui/card';
+import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { FaCar, FaGraduationCap, FaGlobe, FaKey, FaStar, FaQuoteLeft, FaArrowRight } from 'react-icons/fa';
 

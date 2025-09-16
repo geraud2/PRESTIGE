@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
-import Card from '@/components/ui/card';
+import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { FaAward, FaUsers, FaHandshake, FaLeaf, FaCertificate, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
