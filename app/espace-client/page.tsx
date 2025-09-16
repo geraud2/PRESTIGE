@@ -301,7 +301,7 @@ export default function EspaceClientPage() {
                 </Card>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                 <Card className="p-4 md:p-6">
                   <h3 className="font-heading text-lg md:text-xl font-bold text-gray-900 mb-4 md:mb-6">
                     Dernières réservations
@@ -347,7 +347,7 @@ export default function EspaceClientPage() {
                     ))}
                   </div>
                 </Card>
-              </div>
+              </div> */}
             </div>
           )}
 

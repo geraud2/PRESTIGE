@@ -119,7 +119,7 @@ export default function AProposPage() {
         backgroundImage="https://images.pexels.com/photos/1181534/pexels-photo-1181534.jpeg"
         theme="vtc"
         primaryAction={{
-          text: "Découvrir notre équipe",
+          text: "Voir nos formations",
           href: "#equipe",
           onClick: () => document.getElementById('equipe')?.scrollIntoView({ behavior: 'smooth' })
         }}
